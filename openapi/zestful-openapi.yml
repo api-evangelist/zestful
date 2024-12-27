@@ -1,0 +1,107 @@
+openapi: 3.1.0
+info:
+  title: Ingredient Parsing API
+  version: 1.0.0
+  description: Parses a list of raw ingredient strings into structured JSON.
+servers:
+  - url: https://api.example.com
+paths:
+  /parseIngredients:
+    post:
+      summary: Parse a list of raw ingredient strings.
+      description: >-
+        Parses raw ingredient strings into structured data, including quantity,
+        unit, product, preparation notes, and USDA information.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ingredients:
+                  type: array
+                  items:
+                    type: string
+                    maxLength: 1024
+                  minItems: 1
+                  maxItems: 100
+              required:
+                - ingredients
+      responses:
+        '200':
+          description: Successfully parsed ingredients.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        ingredientRaw:
+                          type: string
+                        ingredientParsed:
+                          type: object
+                          properties:
+                            quantity:
+                              type: number
+                              nullable: true
+                            unit:
+                              type: string
+                              nullable: true
+                            productSizeModifier:
+                              type: string
+                              nullable: true
+                            product:
+                              type: string
+                            preparationNotes:
+                              type: string
+                              nullable: true
+                            usdaInfo:
+                              type: object
+                              properties:
+                                category:
+                                  type: string
+                                description:
+                                  type: string
+                                fdcId:
+                                  type: string
+                                matchMethod:
+                                  type: string
+                                  enum:
+                                    - exact
+                                    - closestUnbranded
+                                    - closestBranded
+                          required:
+                            - product
+                        confidence:
+                          type: number
+                        error:
+                          type: string
+                          nullable: true
+                  requestsRemaining:
+                    type: integer
+                  error:
+                    type: string
+                    nullable: true
+        '400':
+          description: Bad request due to invalid input.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+        '500':
+          description: Internal server error.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
