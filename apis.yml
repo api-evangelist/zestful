@@ -9,6 +9,8 @@ apis:
     properties:
       - url: ' https://zestfuldata.com/?ref=public_apis'
         type: Documentation
+      - type: OpenAPI
+        url: properties/zestful-openapi.yml
     description: ' Zestfuls ingredient parser API turns plain recipe strings into beautiful, structured JSON data.  '
 name: Zestful
 tags:
