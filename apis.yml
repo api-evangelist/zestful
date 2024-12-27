@@ -5,13 +5,16 @@ apis:
     name: Zestful
     tags:
       - Parse
-    humanURL: ' https://zestfuldata.com/?ref=public_apis'
+    humanURL: https://zestfuldata.com/?ref=public_apis
+    baseURL: https://sandbox.zestfuldata.com
     properties:
       - url: ' https://zestfuldata.com/?ref=public_apis'
         type: Documentation
-      - type: OpenAPI
-        url: properties/zestful-openapi.yml
-    description: ' Zestfuls ingredient parser API turns plain recipe strings into beautiful, structured JSON data.  '
+      - url: properties/zestful-openapi.yml
+        type: OpenAPI
+    description: >-
+      Zestfuls ingredient parser API turns plain recipe strings into beautiful,
+      structured JSON data.
 name: Zestful
 tags:
   - Recipes
