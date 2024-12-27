@@ -1,8 +1,8 @@
 openapi: 3.1.0
 info:
-  title: Ingredient Parsing API
+  title: Zestful
   version: 1.0.0
-  description: Parses a list of raw ingredient strings into structured JSON.
+  description: ' Zestfuls ingredient parser API turns plain recipe strings into beautiful, structured JSON data.  '
 servers:
   - url: https://api.example.com
 paths:
@@ -105,3 +105,5 @@ paths:
                 properties:
                   error:
                     type: string
+      tags:
+        - Parse
