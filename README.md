@@ -21,18 +21,21 @@
 ## APIs
 
 ### Zestful
- Zestfuls ingredient parser API turns plain recipe strings into beautiful, structured JSON data.  
+Zestfuls ingredient parser API turns plain recipe strings into beautiful, structured JSON data.
 
-**Human URL:** [ https://zestfuldata.com/?ref=public_apis]( https://zestfuldata.com/?ref=public_apis)
+**Human URL:** [https://zestfuldata.com/?ref=public_apis](https://zestfuldata.com/?ref=public_apis)
+
+**Base URL:** [https://sandbox.zestfuldata.com](https://sandbox.zestfuldata.com)
 
 
 #### Tags:
 
- - API
+ - Parse
 
 #### Properties
 
 - [Documentation]( https://zestfuldata.com/?ref=public_apis)
+- [OpenAPI](properties/zestful-openapi.yml)
 
 ## Maintainers
 
