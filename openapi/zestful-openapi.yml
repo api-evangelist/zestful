@@ -10,7 +10,7 @@ servers:
 paths:
   /parseIngredients:
     post:
-      summary: Parse a list of raw ingredient strings.
+      summary: Zestful Parse a list of raw ingredient strings.
       description: >-
         Parses raw ingredient strings into structured data, including quantity,
         unit, product, preparation notes, and USDA information.
