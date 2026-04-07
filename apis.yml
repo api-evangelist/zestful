@@ -17,9 +17,9 @@ apis:
       structured JSON data.
 name: Zestful
 tags:
-  - Recipes
   - Ingredients
   - Parsers
+  - Recipes
 type: Contract
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party

@@ -109,3 +109,5 @@ paths:
                     type: string
       tags:
         - Parse
+tags:
+  - name: Parse
