@@ -3,14 +3,23 @@ info:
   title: Zestful
   version: 1.0.0
   description: >-
-    Zestfuls ingredient parser API turns plain recipe strings into beautiful,
-    structured JSON data.
+    Zestful's ingredient parser API uses machine learning to turn plain recipe
+    ingredient strings into beautiful, structured JSON data. It extracts
+    quantity, unit, product name, preparation notes, and USDA FoodData Central
+    database matches from free-form recipe text.
+  contact:
+    email: michael@zestfuldata.com
+  x-api-id: zestful
+  x-audience: external-public
 servers:
-  - url: https://api.example.com
+  - url: https://zestfuldata.com
+    description: Production server
+  - url: https://sandbox.zestfuldata.com
+    description: Sandbox server (free tier, 30 parses/day)
 paths:
   /parseIngredients:
     post:
-      summary: Zestful Parse a list of raw ingredient strings.
+      summary: Parse a List of Raw Ingredient Strings
       description: >-
         Parses raw ingredient strings into structured data, including quantity,
         unit, product, preparation notes, and USDA information.
@@ -107,7 +116,20 @@ paths:
                 properties:
                   error:
                     type: string
+      operationId: parseIngredients
+      security:
+        - ApiKeyAuth: []
       tags:
         - Parse
 tags:
   - name: Parse
+    description: Ingredient parsing operations
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-Api-Key
+      description: >-
+        API key for authentication. Required for professional and enterprise
+        plans. Sandbox tier uses no authentication.

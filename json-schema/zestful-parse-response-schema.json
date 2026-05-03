@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/zestful/main/json-schema/zestful-parse-response-schema.json",
+  "title": "Zestful Parse Ingredients Response",
+  "description": "Response from the Zestful /parseIngredients endpoint containing parsed ingredient results.",
+  "type": "object",
+  "properties": {
+    "results": {
+      "type": "array",
+      "description": "Array of parsed ingredient objects, one per input ingredient string.",
+      "items": {
+        "$ref": "zestful-ingredient-schema.json"
+      }
+    },
+    "requestsRemaining": {
+      "type": "integer",
+      "description": "Number of ingredient parse requests remaining in the current quota period. Only present on sandbox server."
+    },
+    "error": {
+      "type": ["string", "null"],
+      "description": "Top-level error message if the entire request failed."
+    }
+  },
+  "required": ["results"]
+}

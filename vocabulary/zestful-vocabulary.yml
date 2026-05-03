@@ -1,0 +1,130 @@
+info:
+  title: Zestful Vocabulary
+  description: >-
+    Domain vocabulary for the Zestful ingredient parser API covering food
+    data, recipe parsing, nutritional data, and USDA FoodData Central concepts.
+  version: 1.0.0
+  created: '2026-05-03'
+  modified: '2026-05-03'
+
+tags:
+  - Food
+  - Ingredients
+  - Parsers
+  - Recipes
+  - USDA
+
+terms:
+  - term: Ingredient
+    definition: >-
+      A single food item used in a recipe, described by quantity, unit,
+      product name, and optional preparation notes.
+    tags:
+      - Core
+      - Food
+
+  - term: Ingredient String
+    definition: >-
+      A free-form text representation of a recipe ingredient as it appears
+      in published recipes (e.g., "2 cups all-purpose flour").
+    tags:
+      - Input
+      - Parsing
+
+  - term: Parsed Ingredient
+    definition: >-
+      The structured JSON representation of an ingredient string after
+      machine-learning parsing by Zestful.
+    tags:
+      - Output
+      - Parsing
+
+  - term: Quantity
+    definition: >-
+      The numeric amount of an ingredient specified in a recipe (e.g.,
+      2 for "2 cups flour"). May be null if not specified.
+    tags:
+      - Measurement
+      - Parsing
+
+  - term: Unit
+    definition: >-
+      The measurement unit associated with a quantity, expressed in singular
+      form (e.g., "cup", "teaspoon", "tablespoon", "ounce").
+    tags:
+      - Measurement
+      - Parsing
+
+  - term: Product
+    definition: >-
+      The purchasable food item name extracted from an ingredient string
+      (e.g., "all-purpose flour", "kosher salt", "unsalted butter").
+    tags:
+      - Core
+      - Food
+
+  - term: Product Size Modifier
+    definition: >-
+      A size descriptor for an ingredient (e.g., "large", "small", "medium").
+    tags:
+      - Measurement
+      - Parsing
+
+  - term: Preparation Notes
+    definition: >-
+      Instructions describing how an ingredient should be prepared before
+      use (e.g., "melted", "finely chopped", "beaten").
+    tags:
+      - Cooking
+      - Parsing
+
+  - term: Confidence Score
+    definition: >-
+      A float from 0.0 to 1.0 representing the model's certainty in its
+      parse result. Higher values indicate greater confidence.
+    tags:
+      - Machine Learning
+      - Quality
+
+  - term: USDA FoodData Central
+    definition: >-
+      The United States Department of Agriculture's comprehensive food
+      composition database used by Zestful to match parsed ingredients
+      to standardized nutritional records.
+    tags:
+      - USDA
+      - Nutrition
+      - Reference Data
+
+  - term: FDC ID
+    definition: >-
+      The USDA FoodData Central unique identifier for a food item
+      (e.g., "20081" for all-purpose flour).
+    tags:
+      - USDA
+      - Identifier
+
+  - term: Match Method
+    definition: >-
+      The algorithm used to match a parsed ingredient to the USDA database.
+      Values: exact (direct match), closestUnbranded (nearest generic match),
+      closestBranded (nearest branded product match).
+    tags:
+      - USDA
+      - Matching
+
+  - term: Sandbox Server
+    definition: >-
+      A free-tier server at sandbox.zestfuldata.com that allows 30 ingredient
+      parses per day without authentication, used for testing and development.
+    tags:
+      - Environment
+      - Pricing
+
+  - term: Requests Remaining
+    definition: >-
+      The number of ingredient parse requests remaining in the current
+      free quota period on the sandbox server.
+    tags:
+      - Rate Limiting
+      - Sandbox

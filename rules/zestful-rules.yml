@@ -1,0 +1,69 @@
+extends: spectral:oas
+rules:
+  zestful-operation-id-camel-case:
+    description: Operation IDs must use camelCase (Zestful convention)
+    message: "Operation ID '{{value}}' must be camelCase"
+    severity: warn
+    given: "$.paths[*][*].operationId"
+    then:
+      function: pattern
+      functionOptions:
+        match: "^[a-z][a-zA-Z0-9]*$"
+
+  zestful-request-body-required:
+    description: POST endpoints must define a required request body
+    message: POST operation must have a required requestBody
+    severity: error
+    given: "$.paths[*].post"
+    then:
+      - field: requestBody
+        function: defined
+      - field: requestBody.required
+        function: truthy
+
+  zestful-ingredients-array-limits:
+    description: Ingredients array must enforce min/maxItems limits
+    message: Ingredients array must define minItems and maxItems
+    severity: warn
+    given: "$.paths[*].post.requestBody.content.application/json.schema.properties.ingredients"
+    then:
+      - field: minItems
+        function: defined
+      - field: maxItems
+        function: defined
+
+  zestful-response-200-defined:
+    description: All operations must define a 200 response
+    message: Operation must define a 200 success response
+    severity: error
+    given: "$.paths[*][*].responses"
+    then:
+      field: "200"
+      function: defined
+
+  zestful-tags-defined:
+    description: All operations must have tags
+    message: Operation must have at least one tag
+    severity: warn
+    given: "$.paths[*][*].tags"
+    then:
+      function: length
+      functionOptions:
+        min: 1
+
+  zestful-security-defined:
+    description: Operations should define security requirements
+    message: Operation should define security requirements
+    severity: warn
+    given: "$.paths[*][*].security"
+    then:
+      function: defined
+
+  zestful-info-contact:
+    description: API info must include contact details
+    message: API info must include a contact object
+    severity: warn
+    given: "$.info"
+    then:
+      field: contact
+      function: defined

@@ -1,0 +1,40 @@
+{
+  "title": "Zestful Ingredient Structure",
+  "description": "Document structure for a parsed ingredient from the Zestful API.",
+  "type": "object",
+  "fields": [
+    {
+      "name": "ingredientRaw",
+      "type": "string",
+      "required": true,
+      "description": "Original unparsed ingredient string"
+    },
+    {
+      "name": "ingredientParsed",
+      "type": "object",
+      "required": true,
+      "description": "Structured parse result",
+      "fields": [
+        { "name": "quantity", "type": "number|null", "required": false, "description": "Numeric quantity" },
+        { "name": "unit", "type": "string|null", "required": false, "description": "Measurement unit (singular)" },
+        { "name": "productSizeModifier", "type": "string|null", "required": false, "description": "Size descriptor" },
+        { "name": "product", "type": "string", "required": true, "description": "Purchasable item name" },
+        { "name": "preparationNotes", "type": "string|null", "required": false, "description": "Preparation instructions" },
+        {
+          "name": "usdaInfo",
+          "type": "object|null",
+          "required": false,
+          "description": "USDA FoodData Central match",
+          "fields": [
+            { "name": "fdcId", "type": "string", "required": false, "description": "USDA FDC ID" },
+            { "name": "matchMethod", "type": "string", "required": false, "description": "Match method: exact, closestUnbranded, closestBranded" },
+            { "name": "category", "type": "string", "required": false, "description": "USDA food category" },
+            { "name": "description", "type": "string", "required": false, "description": "USDA food description" }
+          ]
+        }
+      ]
+    },
+    { "name": "confidence", "type": "number", "required": true, "description": "Parse confidence (0.0–1.0)" },
+    { "name": "error", "type": "string|null", "required": false, "description": "Parse error if any" }
+  ]
+}

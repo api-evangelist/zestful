@@ -1,0 +1,69 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "zestful": "https://zestfuldata.com/vocab#",
+    "usda": "https://fdc.nal.usda.gov/vocab#",
+
+    "ingredientRaw": {
+      "@id": "zestful:ingredientRaw",
+      "@type": "schema:Text"
+    },
+    "ingredientParsed": {
+      "@id": "zestful:ingredientParsed",
+      "@type": "@id"
+    },
+    "quantity": {
+      "@id": "schema:quantity",
+      "@type": "schema:Number"
+    },
+    "unit": {
+      "@id": "schema:unitText",
+      "@type": "schema:Text"
+    },
+    "productSizeModifier": {
+      "@id": "zestful:productSizeModifier",
+      "@type": "schema:Text"
+    },
+    "product": {
+      "@id": "schema:name",
+      "@type": "schema:Text"
+    },
+    "preparationNotes": {
+      "@id": "zestful:preparationNotes",
+      "@type": "schema:Text"
+    },
+    "confidence": {
+      "@id": "zestful:confidence",
+      "@type": "schema:Number"
+    },
+    "usdaInfo": {
+      "@id": "usda:foodMatch",
+      "@type": "@id"
+    },
+    "fdcId": {
+      "@id": "usda:fdcId",
+      "@type": "schema:Text"
+    },
+    "matchMethod": {
+      "@id": "usda:matchMethod",
+      "@type": "schema:Text"
+    },
+    "category": {
+      "@id": "schema:category",
+      "@type": "schema:Text"
+    },
+    "description": {
+      "@id": "schema:description",
+      "@type": "schema:Text"
+    },
+    "results": {
+      "@id": "zestful:results",
+      "@container": "@list"
+    },
+    "requestsRemaining": {
+      "@id": "zestful:requestsRemaining",
+      "@type": "schema:Integer"
+    }
+  }
+}

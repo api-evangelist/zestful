@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/zestful/main/json-schema/zestful-ingredient-schema.json",
+  "title": "Zestful Parsed Ingredient",
+  "description": "Structured representation of a parsed recipe ingredient from the Zestful API, including quantity, unit, product name, preparation notes, and USDA FoodData Central match.",
+  "type": "object",
+  "properties": {
+    "ingredientRaw": {
+      "type": "string",
+      "description": "The original unparsed ingredient string as submitted."
+    },
+    "ingredientParsed": {
+      "type": "object",
+      "description": "Structured breakdown of the parsed ingredient.",
+      "properties": {
+        "quantity": {
+          "type": ["number", "null"],
+          "description": "Numeric quantity of the ingredient (e.g., 2 for '2 cups flour')."
+        },
+        "unit": {
+          "type": ["string", "null"],
+          "description": "Measurement unit in singular form (e.g., 'cup', 'teaspoon', 'tablespoon')."
+        },
+        "productSizeModifier": {
+          "type": ["string", "null"],
+          "description": "Size descriptor for the ingredient (e.g., 'large', 'small')."
+        },
+        "product": {
+          "type": "string",
+          "description": "The purchasable item name (e.g., 'all-purpose flour', 'kosher salt')."
+        },
+        "preparationNotes": {
+          "type": ["string", "null"],
+          "description": "Preparation instructions (e.g., 'melted', 'beaten', 'finely chopped')."
+        },
+        "usdaInfo": {
+          "type": ["object", "null"],
+          "description": "USDA FoodData Central database match for this ingredient.",
+          "properties": {
+            "fdcId": {
+              "type": "string",
+              "description": "USDA FoodData Central identifier."
+            },
+            "matchMethod": {
+              "type": "string",
+              "enum": ["exact", "closestUnbranded", "closestBranded"],
+              "description": "Method used to match the ingredient to the USDA database."
+            },
+            "category": {
+              "type": "string",
+              "description": "USDA food category (e.g., 'Dairy and Egg Products')."
+            },
+            "description": {
+              "type": "string",
+              "description": "USDA database description of the matched food item."
+            }
+          }
+        }
+      },
+      "required": ["product"]
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Model confidence score (0.0–1.0) for the parse result."
+    },
+    "error": {
+      "type": ["string", "null"],
+      "description": "Error message if the ingredient could not be parsed."
+    }
+  },
+  "required": ["ingredientRaw", "ingredientParsed", "confidence"]
+}

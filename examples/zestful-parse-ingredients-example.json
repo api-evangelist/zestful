@@ -1,0 +1,99 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://zestfuldata.com/parseIngredients",
+    "headers": {
+      "Content-Type": "application/json",
+      "X-Api-Key": "YOUR_API_KEY"
+    },
+    "body": {
+      "ingredients": [
+        "2 cups all-purpose flour",
+        "1/2 teaspoon kosher salt",
+        "3 tablespoons unsalted butter, melted",
+        "1 large egg, beaten"
+      ]
+    }
+  },
+  "response": {
+    "status": 200,
+    "body": {
+      "results": [
+        {
+          "ingredientRaw": "2 cups all-purpose flour",
+          "ingredientParsed": {
+            "quantity": 2,
+            "unit": "cup",
+            "productSizeModifier": null,
+            "product": "all-purpose flour",
+            "preparationNotes": null,
+            "usdaInfo": {
+              "fdcId": "20081",
+              "matchMethod": "exact",
+              "category": "Cereal Grains and Pasta",
+              "description": "Wheat flour, white, all-purpose, enriched, bleached"
+            }
+          },
+          "confidence": 0.98,
+          "error": null
+        },
+        {
+          "ingredientRaw": "1/2 teaspoon kosher salt",
+          "ingredientParsed": {
+            "quantity": 0.5,
+            "unit": "teaspoon",
+            "productSizeModifier": null,
+            "product": "kosher salt",
+            "preparationNotes": null,
+            "usdaInfo": {
+              "fdcId": "173468",
+              "matchMethod": "closestUnbranded",
+              "category": "Spices and Herbs",
+              "description": "Salt, table"
+            }
+          },
+          "confidence": 0.95,
+          "error": null
+        },
+        {
+          "ingredientRaw": "3 tablespoons unsalted butter, melted",
+          "ingredientParsed": {
+            "quantity": 3,
+            "unit": "tablespoon",
+            "productSizeModifier": null,
+            "product": "unsalted butter",
+            "preparationNotes": "melted",
+            "usdaInfo": {
+              "fdcId": "173410",
+              "matchMethod": "exact",
+              "category": "Dairy and Egg Products",
+              "description": "Butter, without salt"
+            }
+          },
+          "confidence": 0.99,
+          "error": null
+        },
+        {
+          "ingredientRaw": "1 large egg, beaten",
+          "ingredientParsed": {
+            "quantity": 1,
+            "unit": null,
+            "productSizeModifier": "large",
+            "product": "egg",
+            "preparationNotes": "beaten",
+            "usdaInfo": {
+              "fdcId": "747997",
+              "matchMethod": "exact",
+              "category": "Dairy and Egg Products",
+              "description": "Egg, whole, raw, fresh"
+            }
+          },
+          "confidence": 0.97,
+          "error": null
+        }
+      ],
+      "requestsRemaining": 26,
+      "error": null
+    }
+  }
+}
