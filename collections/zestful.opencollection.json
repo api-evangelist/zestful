@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Zestful",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Parse",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Parse a List of Raw Ingredient Strings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://zestfuldata.com/parseIngredients",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "X-Api-Key",
+              "value": "{{X-Api-Key}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Parses raw ingredient strings into structured data, including quantity, unit, product, preparation notes, and USDA information."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
