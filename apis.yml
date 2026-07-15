@@ -51,6 +51,8 @@ apis:
       the USDA FoodData Central database. Accepts up to 100 ingredients per request. Pricing: free tier (30 parses/day),
       professional ($0.02 per parse), and enterprise (flat fee, private server).
 common:
+  - type: AgenticAccess
+    url: agentic-access/zestful-agentic-access.yml
   - type: DomainSecurity
     url: security/zestful-domain-security.yml
   - type: Authentication
