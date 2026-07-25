@@ -1,28 +1,25 @@
 openapi: 3.1.0
 info:
-  title: Zestful
+  title: Zestful Parse API
   version: 1.0.0
-  description: >-
-    Zestful's ingredient parser API uses machine learning to turn plain recipe
-    ingredient strings into beautiful, structured JSON data. It extracts
-    quantity, unit, product name, preparation notes, and USDA FoodData Central
-    database matches from free-form recipe text.
+  description: Zestful's ingredient parser API uses machine learning to turn plain recipe ingredient strings into beautiful, structured JSON data. It extracts quantity, unit, product name, preparation notes, and USDA FoodData Central database matches from free-form recipe text.
   contact:
     email: michael@zestfuldata.com
   x-api-id: zestful
   x-audience: external-public
 servers:
-  - url: https://zestfuldata.com
-    description: Production server
-  - url: https://sandbox.zestfuldata.com
-    description: Sandbox server (free tier, 30 parses/day)
+- url: https://zestfuldata.com
+  description: Production server
+- url: https://sandbox.zestfuldata.com
+  description: Sandbox server (free tier, 30 parses/day)
+tags:
+- name: Parse
+  description: Ingredient parsing operations
 paths:
   /parseIngredients:
     post:
       summary: Parse a List of Raw Ingredient Strings
-      description: >-
-        Parses raw ingredient strings into structured data, including quantity,
-        unit, product, preparation notes, and USDA information.
+      description: Parses raw ingredient strings into structured data, including quantity, unit, product, preparation notes, and USDA information.
       requestBody:
         required: true
         content:
@@ -38,7 +35,7 @@ paths:
                   minItems: 1
                   maxItems: 100
               required:
-                - ingredients
+              - ingredients
       responses:
         '200':
           description: Successfully parsed ingredients.
@@ -83,11 +80,11 @@ paths:
                                 matchMethod:
                                   type: string
                                   enum:
-                                    - exact
-                                    - closestUnbranded
-                                    - closestBranded
+                                  - exact
+                                  - closestUnbranded
+                                  - closestBranded
                           required:
-                            - product
+                          - product
                         confidence:
                           type: number
                         error:
@@ -118,18 +115,13 @@ paths:
                     type: string
       operationId: parseIngredients
       security:
-        - ApiKeyAuth: []
+      - ApiKeyAuth: []
       tags:
-        - Parse
-tags:
-  - name: Parse
-    description: Ingredient parsing operations
+      - Parse
 components:
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
       in: header
       name: X-Api-Key
-      description: >-
-        API key for authentication. Required for professional and enterprise
-        plans. Sandbox tier uses no authentication.
+      description: API key for authentication. Required for professional and enterprise plans. Sandbox tier uses no authentication.
