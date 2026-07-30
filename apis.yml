@@ -6,9 +6,22 @@ description: >-
   database matches from free-form recipe text. Designed for recipe app developers building searchable recipes, shopping
   lists, and ingredient databases.
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 position: Consumer
 access: 3rd-Party
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/zestful.png
 tags:
   - Food
   - Ingredients
@@ -20,36 +33,28 @@ modified: '2026-05-19'
 url: https://raw.githubusercontent.com/api-evangelist/zestful/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
-  - aid: zestful:zestful
-    name: Zestful Ingredient Parser API
-    tags:
-      - Food
-      - Ingredients
-      - Parsers
-      - Recipes
-      - USDA
-    baseURL: https://zestfuldata.com
-    humanURL: https://zestfuldata.com/docs/
-    properties:
-      - url: https://zestfuldata.com/docs/
-        type: Documentation
-      - url: https://zestfuldata.com/pricing/
-        type: Pricing
-      - url: openapi/zestful-openapi.yml
-        type: OpenAPI
-      - url: json-schema/zestful-ingredient-schema.json
-        type: JSONSchema
-      - url: json-schema/zestful-parse-response-schema.json
-        type: JSONSchema
-      - url: json-ld/zestful-context.jsonld
-        type: JSONLD
-      - url: rules/zestful-rules.yml
-        type: SpectralRules
-    description: >-
-      The Zestful Ingredient Parser API uses machine learning to convert plain recipe ingredient strings into structured
-      JSON data. It parses ingredient names, quantities, units, preparation notes, and matches each ingredient against
-      the USDA FoodData Central database. Accepts up to 100 ingredients per request. Pricing: free tier (30 parses/day),
-      professional ($0.02 per parse), and enterprise (flat fee, private server).
+- aid: zestful:zestful-parse-api
+  name: Zestful Parse API
+  description: Ingredient parsing operations
+  humanURL: https://zestfuldata.com/docs/
+  baseURL: https://zestfuldata.com
+  tags:
+  - Parse
+  properties:
+  - type: OpenAPI
+    url: openapi/zestful-parse-api-openapi.yml
+  - type: Documentation
+    url: https://zestfuldata.com/docs/
+  - type: Pricing
+    url: https://zestfuldata.com/pricing/
+  - type: JSONSchema
+    url: json-schema/zestful-ingredient-schema.json
+  - type: JSONSchema
+    url: json-schema/zestful-parse-response-schema.json
+  - type: JSONLD
+    url: json-ld/zestful-context.jsonld
+  - type: SpectralRules
+    url: rules/zestful-rules.yml
 common:
   - type: AgenticAccess
     url: agentic-access/zestful-agentic-access.yml
