@@ -1,0 +1,14 @@
+{
+  "provider": "zestful",
+  "sources": [
+    "zestful-parse-api-openapi.yml"
+  ],
+  "outputs": [
+    "zestful-parse-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
