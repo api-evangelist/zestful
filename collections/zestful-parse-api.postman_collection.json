@@ -1,0 +1,249 @@
+{
+  "item": [
+    {
+      "id": "c42ed95a-d8b9-485e-b7e5-f3e64a41f87f",
+      "name": "Parse",
+      "description": {
+        "content": "Ingredient parsing operations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1e27c15f-a600-4403-821e-c555d99e9434",
+          "name": "Parse a List of Raw Ingredient Strings",
+          "request": {
+            "name": "Parse a List of Raw Ingredient Strings",
+            "description": {
+              "content": "Parses raw ingredient strings into structured data, including quantity, unit, product, preparation notes, and USDA information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "parseIngredients"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "X-Api-Key"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ingredients\": [\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c763ed95-e5ca-4454-88a8-82253f8e0c86",
+              "name": "Successfully parsed ingredients.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "parseIngredients"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ingredients\": [\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"ingredientRaw\": \"string\",\n      \"ingredientParsed\": {\n        \"product\": \"string\",\n        \"quantity\": 6261.578214400615,\n        \"unit\": \"string\",\n        \"productSizeModifier\": \"string\",\n        \"preparationNotes\": \"string\",\n        \"usdaInfo\": {\n          \"category\": \"string\",\n          \"description\": \"string\",\n          \"fdcId\": \"string\",\n          \"matchMethod\": \"exact\"\n        }\n      },\n      \"confidence\": 1960.105596350723,\n      \"error\": \"string\"\n    },\n    {\n      \"ingredientRaw\": \"string\",\n      \"ingredientParsed\": {\n        \"product\": \"string\",\n        \"quantity\": 190.55980853945553,\n        \"unit\": \"string\",\n        \"productSizeModifier\": \"string\",\n        \"preparationNotes\": \"string\",\n        \"usdaInfo\": {\n          \"category\": \"string\",\n          \"description\": \"string\",\n          \"fdcId\": \"string\",\n          \"matchMethod\": \"closestBranded\"\n        }\n      },\n      \"confidence\": 2354.6938688057608,\n      \"error\": \"string\"\n    }\n  ],\n  \"requestsRemaining\": 6172,\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b6bc05e4-0ad5-43a1-bae7-d258fa8f7e68",
+              "name": "Bad request due to invalid input.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "parseIngredients"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ingredients\": [\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d6890db3-50cb-4961-a9a7-eda67471a550",
+              "name": "Internal server error.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "parseIngredients"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-Api-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ingredients\": [\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://zestfuldata.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "004ea4ca-e179-4e23-abe5-462373345cd4",
+    "name": "Zestful Parse API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Zestful's ingredient parser API uses machine learning to turn plain recipe ingredient strings into beautiful, structured JSON data. It extracts quantity, unit, product name, preparation notes, and USDA FoodData Central database matches from free-form recipe text.\n\nContact Support:\n Email: michael@zestfuldata.com",
+      "type": "text/plain"
+    }
+  }
+}
