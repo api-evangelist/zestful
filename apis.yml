@@ -38,6 +38,12 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/zestful.pn
 tags:
   - Food
   - Ingredients
+  - Parser
+  - Recipes
+  - USDA
+tags_raw:
+  - Food
+  - Ingredients
   - Parsers
   - Recipes
   - USDA
