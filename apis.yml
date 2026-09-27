@@ -56,7 +56,7 @@ apis:
   name: Zestful Parse API
   description: Ingredient parsing operations
   humanURL: https://zestfuldata.com/docs/
-  baseURL: https://zestfuldata.com
+  baseURL: https://sandbox.zestfuldata.com
   tags:
   - Parse
   properties:
