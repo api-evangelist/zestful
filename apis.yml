@@ -75,6 +75,8 @@ apis:
   - type: SpectralRules
     url: rules/zestful-rules.yml
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/zestful/overview
   - type: Plans
     url: plans/zestful-plans-pricing.yml
   - type: RateLimits
